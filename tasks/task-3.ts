@@ -19,7 +19,6 @@ const someObject: MyObject = {
 };
 export default function extractValuesForKey(obj: MyObject, searchKey: string) {
   let resultMap: Map<string, any> = new Map();
-
   const keyFlatening = (
     obj: MyObject,
     newObj: MyObject,
@@ -31,7 +30,7 @@ export default function extractValuesForKey(obj: MyObject, searchKey: string) {
         if (flattenedKey === undefined) {
           newKey = key;
         } else {
-          newKey = flattenedKey + "/" + key;
+          newKey = `${flattenedKey}/${key}`;
         }
 
         let value = obj[key];
@@ -51,20 +50,28 @@ export default function extractValuesForKey(obj: MyObject, searchKey: string) {
   };
 
   let flatObj:MyObject = flatten(obj);
+
+  const keyArray = Object.keys(flatObj).join("/").split("/");
+  
+
   // console.log(flatObj)
   // Final Mapping
-  for (const key in flatObj) {
-    if (key.includes(searchKey)) {
-      if (key.substring(0, key.length - searchKey.length) === "") {
-        resultMap.set(`${someObjectName}/`,flatObj[key]);
-      }
-      if (key.substring(0, key.length - searchKey.length) !== "") {
-        resultMap.set(`${someObjectName}/${key.substring(0, key.length - searchKey.length)}`,flatObj[key]);
+  if ( keyArray.includes(searchKey)){
+    for (const key in flatObj) {
+      if (key.includes(searchKey)) {
+        if (key.substring(0, key.length - searchKey.length) === "") {
+          resultMap.set(`${someObjectName}/`,flatObj[key]);
+        }
+        if (key.substring(0, key.length - searchKey.length) !== "") {
+          resultMap.set(`${someObjectName}/${key.substring(0, key.length - (searchKey.length + 1))}`,flatObj[key]);
+        }
       }
     }
+  } else {
+    resultMap = new Map(null);
   }
 
   return resultMap;
 }
 
-console.log(extractValuesForKey(someObject, "someKey"));
+console.log(extractValuesForKey(someObject, "uuid"));
