@@ -51,7 +51,8 @@ export default function extractValuesForKey(obj: MyObject, searchKey: string) {
   };
 
   let flatObj:MyObject = flatten(obj);
-  console.log(flatObj)
+  // console.log(flatObj)
+  // Final Mapping
   for (const key in flatObj) {
     if (key.includes(searchKey)) {
       if (key.substring(0, key.length - searchKey.length) === "") {
