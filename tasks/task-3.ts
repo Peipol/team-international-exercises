@@ -49,21 +49,26 @@ export default function extractValuesForKey(obj: MyObject, searchKey: string) {
     return flattenedObject;
   };
 
-  let flatObj:MyObject = flatten(obj);
+  let flatObj: MyObject = flatten(obj);
 
   const keyArray = Object.keys(flatObj).join("/").split("/");
-  
 
   // console.log(flatObj)
   // Final Mapping
-  if ( keyArray.includes(searchKey)){
+  if (keyArray.includes(searchKey)) {
     for (const key in flatObj) {
       if (key.includes(searchKey)) {
         if (key.substring(0, key.length - searchKey.length) === "") {
-          resultMap.set(`${someObjectName}/`,flatObj[key]);
+          resultMap.set(`${someObjectName}/`, flatObj[key]);
         }
         if (key.substring(0, key.length - searchKey.length) !== "") {
-          resultMap.set(`${someObjectName}/${key.substring(0, key.length - (searchKey.length + 1))}`,flatObj[key]);
+          resultMap.set(
+            `${someObjectName}/${key.substring(
+              0,
+              key.length - (searchKey.length + 1)
+            )}`,
+            flatObj[key]
+          );
         }
       }
     }

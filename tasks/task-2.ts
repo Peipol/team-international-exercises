@@ -13,4 +13,11 @@ export default function sumFlexible(a: number | Function): Function {
     }
     return b(a);
   };
-};
+}
+
+sumFlexible((result: number) => console.log("-> ", result));
+sumFlexible(1)((result: number) => console.log("-> ", result));
+sumFlexible(1)(2)((result: number) => console.log("-> ", result));
+sumFlexible(1)(2)(4)((result: number) => console.log("-> ", result));
+sumFlexible(1)(2)(4)(6)((result: number) => console.log("-> ", result));
+sumFlexible(1)(2)(4)(6)(8)((result: number) => console.log("-> ", result));

@@ -3,7 +3,6 @@
 import sumFlexible from "./task-2";
 
 describe(" Task 1 High Order Function Implementation", () => {
-
   // TEST FOR 1ST CASE
 
   test("Test for default behavior sumFlexible(<callback function>)", () => {
@@ -13,7 +12,7 @@ describe(" Task 1 High Order Function Implementation", () => {
   test("Test for console.log arguments in default behavior", () => {
     console.log = jest.fn();
     sumFlexible((result: number) => console.log("-> ", result));
-    expect(console.log).toHaveBeenCalledWith("-> ",0);
+    expect(console.log).toHaveBeenCalledWith("-> ", 0);
   });
 
   // TEST FOR 2ND CASE
@@ -25,7 +24,7 @@ describe(" Task 1 High Order Function Implementation", () => {
   test("Test for console.log arguments in sumFlexible(1)(<callback function>)", () => {
     console.log = jest.fn();
     sumFlexible(1)((result: number) => console.log("-> ", result));
-    expect(console.log).toHaveBeenCalledWith("-> ",1);
+    expect(console.log).toHaveBeenCalledWith("-> ", 1);
   });
 
   // TEST FOR 3RD CASE
@@ -37,7 +36,7 @@ describe(" Task 1 High Order Function Implementation", () => {
   test("Test for console.log arguments in sumFlexible(1)(2)(<callback function>)", () => {
     console.log = jest.fn();
     sumFlexible(1)(2)((result: number) => console.log("-> ", result));
-    expect(console.log).toHaveBeenCalledWith("-> ",3);
+    expect(console.log).toHaveBeenCalledWith("-> ", 3);
   });
 
   // TEST FOR 4TH CASE
@@ -49,7 +48,7 @@ describe(" Task 1 High Order Function Implementation", () => {
   test("Test for console.log arguments in sumFlexible(1)(2)(4)(<callback function>)", () => {
     console.log = jest.fn();
     sumFlexible(1)(2)(4)((result: number) => console.log("-> ", result));
-    expect(console.log).toHaveBeenCalledWith("-> ",7);
+    expect(console.log).toHaveBeenCalledWith("-> ", 7);
   });
 
   // TEST FOR 5TH CASE
@@ -60,7 +59,9 @@ describe(" Task 1 High Order Function Implementation", () => {
 
   test("Test for console.log arguments in sumFlexible(1)(2)(3)(4)(5)(6)(<callback function>)", () => {
     console.log = jest.fn();
-    sumFlexible(1)(2)(3)(4)(5)(6)((result: number) => console.log("-> ", result));
-    expect(console.log).toHaveBeenCalledWith("-> ",21);
+    sumFlexible(1)(2)(3)(4)(5)(6)((result: number) =>
+      console.log("-> ", result)
+    );
+    expect(console.log).toHaveBeenCalledWith("-> ", 21);
   });
 });

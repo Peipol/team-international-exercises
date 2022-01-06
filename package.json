@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf build/ && tsc",
-    "start:1": "rm -rf build/ && tsc && node ./build/task/task-1",
-    "start:2": "rm -rf build/ && tsc && node ./build/task/task-2",
-    "start:3": "rm -rf build/ && tsc && node ./build/task/task-3",
-    "test": "jest"
+    "ts": "ts-node",
+    "start:1": "rm -rf build/ && tsc && node ./build/task-1",
+    "start:2": "rm -rf build/ && tsc && node ./build/task-2",
+    "start:3": "rm -rf build/ && tsc && node ./build/task-3",
+    "test": "jest",
+    "test:1": "jest tasks/task-1.test.ts",
+    "test:2": "jest tasks/task-2.test.ts",
+    "test:3": "jest tasks/task-3.test.ts"
   },
   "author": "Peipol",
   "license": "MIT",
