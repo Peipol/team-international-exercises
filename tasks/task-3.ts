@@ -8,7 +8,7 @@ const someObject: MyObject = {
     someKey: "some text",
   },
   innerTwo: {
-    uuid: 1,
+    uuid: 2,
     innerThree: {
       someOtherKey: "some other text",
       innerFour: {
