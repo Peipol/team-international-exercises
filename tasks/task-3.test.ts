@@ -1,4 +1,4 @@
-//// task-1 test case
+//// task-3 test case
 
 import extractValuesForKey from "./task-3";
 
