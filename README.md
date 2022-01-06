@@ -9,6 +9,7 @@ Technical test
 - Start Task 1 `npm run start:1`
 - Start Task 2 `npm run start:2`
 - Start Task 3 `npm run start:3`
+> After build you can run faster `node ./build/task-<task number>`
 
 ### Tests
 - General Test `npm run test`
